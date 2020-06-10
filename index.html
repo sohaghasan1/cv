@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<!--
+ * HTML-Sheets-of-Paper (https://github.com/delight-im/HTML-Sheets-of-Paper)
+ * Copyright (c) delight.im (https://www.delight.im/)
+ * Licensed under the MIT License (https://opensource.org/licenses/MIT)
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Emulating real sheets of paper in web documents (using HTML and CSS)">
+		<title>Sheets of Paper</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<style>
+			*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #C8CCD1;
+}
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-color: #9E9E9E;
+}
+.page {
+	width: 21cm;
+	min-height: 29.7cm;
+	padding-left: 2cm;
+	padding-right: 2cm;
+	padding-bottom: 2cm;
+	margin: auto;
+	background-color: #fff;
+	display: flex;
+	position: relative;
+}
+.left_content{
+    width: 30%;
+    z-index: 1;
+}
+.logo{
+text-align: center;
+background: #171819;
+padding-top: 2cm;
+}
+.right_content{
+    width: 70%;
+    z-index: 999;
+}
+.logo ul{padding-top: 3;list-style: none;margin: 0;padding: 0;width: 65%;margin: auto;padding: 20px 0;text-align: left;}
+.logo ul li{
+color: #fff;
+padding-bottom: 10px;
+}
+.logo ul li i{
+font-size: 12px;
+color: #BFBFBF;
+}
+.logo ul li p{
+display: inline-block;
+font-size: 12px;
+color: #BFBFBF;
+padding-left: 15px;
+font-family: 'Nunito', sans-serif;
+}
+.logo ul li a{
+    display: inline-block;
+    font-size: 12px;
+    color: #BFBFBF;
+    padding-left: 15px;
+    }
+.logo ul li p:nth-child(3){
+    display: inline-block;
+    font-size: 12px;
+    color: #BFBFBF;
+    padding-left: 30px;
+    }
+.cv-per{
+padding: 20px;
+}
+.cv-per h5{font-size: 16px;font-weight: 700;color: #262626;padding-bottom: 15px;font-family: 'Cormorant', serif;}
+.skill_per{display: flex;justify-content: space-between;align-items: center;padding-bottom: 15px;padding-top: 10px;}
+.skill_per p{
+color: #595959;
+font-size: 14px;
+font-family: 'Nunito', sans-serif;
+}
+.skill_per span{display: inline-block;height: 5px;width: 60px;background: #F2F6FF;border-radius: 5px;position: relative;border: 1px solid #b7b4b4;}
+.skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.second-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 45%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.third-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.edv p{
+color: #BFBFBF;
+font-size: 10px;
+}
+.fourth-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.fifth-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.sixth-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 75%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.cv-per h4{
+    font-size: 14px;
+    font-weight: 400;
+    color: #BFBFBF;
+    font-size: 12px;
+}
+.seventh-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 85%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.eighth-per .skill_per span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 90%;
+    background:#9F997A;
+    border-radius: 5px;
+}
+.hobbies{
+padding: 0px 20px;
+}
+.hobbies h5{
+padding-bottom: 15px;
+font-size: 16px;
+font-weight: 700;
+color: #262626;
+font-family: 'Cormorant', serif;
+}
+.hobbi{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.single-hobbi{
+padding-bottom: 17px 0;
+padding: 15px 0;
+width: 30%;
+text-align: center;
+}
+.single-hobbi img{
+width: 60%;
+padding-bottom: 10px;
+}
+.single-hobbi p{
+color: #595959;
+font-family: 'Nunito', sans-serif;
+font-size: 12px;
+}
+.img {
+    visibility: hidden;
+}
+.main-content{
+padding-left: 50px;
+z-index: 1;
+}
+.heading{
+padding: 100px 0;
+}
+.heading h1{font-family: 'Cormorant', serif;font-size: 40px;color: #000;}
+.heading p{
+letter-spacing: 1,5px;
+font-size: 12px;
+letter-spacing: 3.5px;
+font-weight: 500;
+padding: 5px 0;
+font-family: 'Montserrat', sans-serif;
+}
+.heading ul{
+list-style: none;
+padding: 10px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.heading ul li{
+vertical-align: middle;
+display: flex;
+}
+.heading ul li i{
+font-size: 16px;
+padding-right: 10px;
+}
+.heading ul li a{
+font-size: 12px;
+color: black;
+font-family: 'Lato', sans-serif;
+text-decoration: none;
+}
+.uber{
+padding-top: 20px;
+}
+.uber h4{
+color: #262626;
+font-size: 18px;
+font-weight: 900;
+font-family: 'Cormorant', serif;
+}
+.uber p{
+color: #595959;
+font-size: 13px;
+letter-spacing: 1px;
+padding-top: 10px;
+font-family: 'Nunito', sans-serif;
+}
+.beru{
+padding-top: 50px;
+}
+.beru h4{
+font-size: 16px;
+font-weight: 900;
+color: black;
+font-family: 'Cormorant', serif;
+}
+.date{
+width: 8%;
+text-align: center;
+}
+.date p{
+font-size: 12px;
+color: #7F7F7F;
+font-weight: 600;
+}
+.date h5{
+font-size: 18px;
+color: #7F7F7F;
+}
+.date span{
+display: inline-block;
+height: 50px;
+width: 1px;
+background: #7F7F7F;
+margin-top: 10px;
+}
+.date-content{
+width: 80%;
+}
+.date-content h4{
+color: #9F997A;
+font-size: 12px;
+font-weight: 600;
+padding-bottom: 5px;
+font-family: 'Nunito', sans-serif;
+letter-spacing: 1.5px;
+}
+.date-content h5{
+font-style: italic;
+color: black;
+font-weight: 700;
+font-size: 14px;
+font-family: 'Open Sans', sans-serif;
+padding-bottom: 5px;
+}
+.date-content p{
+color: #595959;
+font-size: 14px;
+padding-bottom: 5px;
+font-family: 'Nunito', sans-serif;
+}
+.date-content li{
+color: #595959;
+font-size: 14px;
+margin-left: 15px;
+font-family: 'Nunito', sans-serif;
+}
+.beru-content{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+		</style>
+	</head>
+	<body class="document">
+		<div class="page" contenteditable="true">
+			<div class="bg">
+
+			</div>
+			<div class="left_content">
+				<div class="logo">
+					<img src="logo.PNG" alt="logo">
+					<ul>
+						<li>
+							<i class="far fa-calendar-minus"></i><p>Geb. am 01.06.1990 in </p>
+						</li>
+						<li>
+							<i class="fas fa-home"></i><p>Berlin Fritzwalter Str.</p> <p>20 12207 Berlin, German</p> 
+						</li>
+						<li>
+							<i class="far fa-envelope"></i><p>tamaraeve@email.com</p> 
+						</li>
+						<li>
+							<i class="fas fa-phone-alt"></i></i><p>+49 30 178 833 60 40</p> 
+						</li>
+						<li>
+							<i class="fas fa-globe"></i><a>tamaraeve.com</a> 
+						</li>
+					</ul>
+				</div>
+				<!-- SPRACHEN section -->
+
+				<div class="cv-per">
+					<h5>SPRACHEN</h5>
+					<div class="skill_per">
+						<p>Deutch</p>
+						<span></span>
+					</div>
+					<div class="second-per">
+						<div class="skill_per">
+							<p>English</p>
+							<span></span>
+						</div>
+					</div>
+					<div class="third-per">
+						<div class="skill_per">
+							<p>Spanish</p>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<!-- SPRACHEN section -->
+
+				<!-- KENTTNISSE section -->
+				<div class="cv-per">
+					<h5>KENTTNISSE</h5>
+					<div class="fourth-per">
+						<div class="edv">
+							<p>EDV</p>
+						</div>
+						<div class="skill_per">
+							<p>3DstudioMax</p>
+							<span></span>
+						</div>
+					</div>
+					
+					<div class="fifth-per">
+						<div class="skill_per">
+							<p>Adobe InDesign</p>
+							<span></span>
+						</div>
+					</div>
+					<div class="sixth-per">
+						<div class="skill_per">
+							<p>Adobe Photoshop</p>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<!-- KENTTNISSE section -->
+
+				<!-- FACHGEBIETE section -->
+				<div class="cv-per">
+					<h4>FACHGEBIETE</h4>
+					<div class="seventh-per">
+						<div class="skill_per">
+							<p>Rendering</p>
+							<span></span>
+						</div>
+					</div>
+					
+					<div class="eighth-per">
+						<div class="skill_per">
+							<p>Drafting</p>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<!-- FACHGEBIETE section -->
+
+				<!-- INTERESSEN section -->
+				<div class="hobbies">
+					<h5>INTERESSEN & HOBBIES</h5>
+					<div class="hobbi">
+						<div class="single-hobbi">
+							<img src="sports.png" alt="">
+							<p>spotrs</p>
+						</div>
+						<div class="single-hobbi">
+							<img src="camera.png" alt="">
+							<p>Fotografie</p>
+						</div>
+						<div class="single-hobbi">
+							<img src="plane.png" alt="">
+							<p>Reisen</p>
+						</div>
+					</div>
+					<div class="hobbi">
+						<div class="single-hobbi">
+							<img src="hill.png" alt="">
+							<p>Wandern</p>
+						</div>
+						<div class="single-hobbi">
+							<img src="cycle.png" alt="">
+							<p>Radfahren</p>
+						</div>
+						<div class="single-hobbi">
+							<img src="sports.png" class="img" alt="">
+							
+						</div>
+					</div>
+				</div>
+
+				<!-- INTERESSEN section -->
+
+			</div>
+			<div class="right_content">
+				<div class="main-content">
+					<div class="heading">
+						<h1>TAMARA EVE</h1>
+						<p>INTERIOR DESIGNER</p>
+						<ul>
+							<li>
+								<i class="fab fa-xing-square"></i><a href="">xing.com/profile/tamara</a>
+							</li>
+							<li>
+								<i class="fab fa-linkedin"></i><a href="">linkedin.com/tamara</a>
+							</li>
+							<li>
+								<i class="fab fa-pinterest-square"></i><a href="">Benutzername</a>
+							</li>
+						</ul>
+					</div>
+
+
+					<!-- uber content -->
+
+					<div class="uber">
+						<h4>ÜBER MICH</h4>
+						<p>Deutsches Ipsum Dolor id danke indoctum Mertesacker pri, Kreuzberg meliore Doppelscheren-Hubtischwagen nominavi Bier Elitr Lebensab-schnittsgefährte nam Handtasche his Apfelstrudel reque Mozart.</p>
+					</div>
+					<!-- uber content -->
+
+					<!-- BERUFSERFAHRUNG section -->
+					<div class="beru">
+						<h4>BERUFSERFAHRUNG</h4>
+						<div class="beru-content">
+							<div class="date">
+								<p>01/2016 </p>
+								<h5>-</h5>
+								<p>Aktuell</p>
+								<span></span>
+							</div>
+							<div class="date-content">
+								<h4>MUSTERPOSITION</h4>
+								<h5>Unternehmensname AG, Ort</h5>
+								<p>Hier können Informationen zum Unternehmen, wie z.B. Branche / Geschäftsfeld eingefügt werden.</p>
+								<ul>
+									<li>Nennen Sie Aufgaben, Verantwortlichkeiten, erreichte Ziele als Stichpunkte, verwenden Sie dabei Schlüsselbegriffe aus der Anzeige</li>
+	
+								</ul>
+							</div>
+						</div>
+						<div class="beru-content">
+							<div class="date">
+								<p>05/2013 </p>
+								<span></span>
+							</div>
+							<div class="date-content">
+								<h4>MUSTERPOSITION IN MUSTERBEREICH</h4>
+								<h5>Unternehmensname AG, Ort</h5>
+								<p>Hier können Informationen zum Unternehmen, wie z.B. Branche / Geschäftsfeld eingefügt werden.</p>
+								<ul>
+									<li>Nennen Sie Aufgaben, Verantwortlichkeiten, erreichte Ziele als Stichpunkte, verwenden Sie dabei Schlüsselbegriffe aus der Anzeige</li>
+	
+								</ul>
+							</div>
+						</div>
+						<div class="beru-content">
+							<div class="date">
+								<p>05/2013</p>
+								<span></span>
+							</div>
+							<div class="date-content">
+								<h4>WERKSTUDENT IN MUSTERBEREICH</h4>
+								<h5>Unternehmensname AG, Ort</h5>
+								<p>Informationen zum Unternehmen, z.B. Branche / Geschäftsfeld</p>
+								<ul>
+									<li>Nennen Sie Aufgaben, Verantwortlichkeiten, erreichte Ziele als Stichpunkte, verwenden Sie dabei Schlüsselbegriffe aus der Anzeige</li>
+	
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- BERUFSERFAHRUNG section -->
+					<div class="beru">
+						<h4>BILDUNGSWEG</h4>
+						<div class="beru-content">
+							<div class="date">
+								<p>01/2016 </p>
+								<h5>-</h5>
+								<p>Aktuell</p>
+								<span></span>
+							</div>
+							<div class="date-content">
+								<h4>MUSTERABSCHLUSS IN MUSTERFACH</h4>
+								<h5>Unternehmensname AG, Ort</h5>
+								<p>Optionaler Text, der akademische Erfahrungen, erreichte Ziele oder Teilnahmen an freiwilligen Projekten und Aufgaben beschreibt.</p>
+								<ul>
+									<li>Abschlussnote: 2,8</li>
+	
+								</ul>
+							</div>
+						</div>
+
+						<div class="beru-content">
+							<div class="date">
+								<p>03/2013</p>
+								<span></span>
+							</div>
+							<div class="date-content">
+								<h4>ONLINE-FORTBILDUNG IM MUSTER-BEREICH</h4>
+								<h5>Musterschule</h5>
+								<p>Optionaler Text, der akademische Erfahrungen, erreichte Ziele, Umfang der Weiterbildung in Wochenstunden und Abschluss beschreibt.</p>
+								<ul>
+									<li>Alternativ/zusätzlich können auch Stichpunkte verwendet werden</li>
+	
+								</ul>
+							</div>
+						</div>
+					
+					
+					</div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
